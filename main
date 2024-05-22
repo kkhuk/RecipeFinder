@@ -1,0 +1,367 @@
+class Recipe:
+
+  def __init__(self,
+               name,
+               cooktime,
+               ingredients,
+               vegan=False,
+               glutenfree=False,
+               vegetarian=False,
+               peanutfree=False,
+               lactosefree=False):
+    self.name = name
+    self.cooktime = cooktime
+    self.ingredients = ingredients
+    self.vegan = vegan
+    self.glutenfree = glutenfree
+    self.vegetarian = vegetarian
+    self.peanutfree = peanutfree
+    self.lactosefree = lactosefree
+    self.diet_list = [
+        self.vegan, self.glutenfree, self.vegetarian, self.peanutfree,
+        self.lactosefree
+    ]
+    self.english_diet = [
+        'vegan', 'glutenfree', 'vegetarian', 'peanutfree', 'lactosefree'
+    ]
+    self.word_diet = [
+        self.english_diet[j] for j in range(len(self.diet_list))
+        if self.diet_list[j] == True
+    ]
+
+
+# all the recipes for the cookbook, with cook-time and #ingredients
+
+chx_tacos = Recipe("Chicken Tacos",
+                   30, [
+                       'tomato', 'onion', 'chicken', 'tortilla',
+                       'taco seasoning', 'mexican cheese'
+                   ],
+                   peanutfree=True)
+
+ceasar_salad = Recipe(
+    "Ceasar Salad",
+    20,
+    ['lettuce', 'ceasar dressing', 'cucumber', 'parmesean cheese', 'crouton'],
+    vegetarian=True,
+    peanutfree=True)
+
+spaghetti_meatballs = Recipe(
+    "Spaghetti and Meatballs",
+    80, [
+        'tomato sauce', 'beef', 'garlic', 'parmesan cheese', 'bread crumb',
+        'olive oil', 'onion'
+    ],
+    peanutfree=True)
+
+shrimp_grits = Recipe("Shrimp and Grits",
+                      20, [
+                          'shrimp', 'chicken broth', 'whole milk', 'butter',
+                          'grits', 'bacon', 'cheddar cheese', 'salt', 'pepper'
+                      ],
+                      peanutfree=True,
+                      glutenfree=True)
+
+montreal_steak = Recipe("Montreal Steak",
+                        5,
+                        ['olive oil', 'soy sauce', 'steak seasoning', 'steak'],
+                        glutenfree=True,
+                        peanutfree=True,
+                        lactosefree=True)
+
+teryaki_steak = Recipe("Teriyaki Steak",
+                       15, [
+                           'steak', 'soy sauce', 'honey', 'balsamic vinegar',
+                           'ginger', 'butter', 'garlic', 'egg', 'rice'
+                       ],
+                       glutenfree=True,
+                       lactosefree=True,
+                       peanutfree=True)
+
+cali_roll = Recipe(
+    "California Roll",
+    45,
+    ['cucumber', 'crab', 'mayo', 'seaweed', 'rice', 'sesame seeds', 'avocado'],
+    glutenfree=True,
+    peanutfree=True,
+    lactosefree=True)
+
+stir_fry = Recipe(
+    "Stir Fry",
+    30, [
+        'olive oil', 'carrot', 'broccoli', 'zucchini', 'onion', 'mushrooms',
+        'pepper', 'garlic', 'soy sauce', 'sesame sauce', 'hoisin sauce',
+        'ginger', 'green onions', 'rice'
+    ],
+    glutenfree=True,
+    peanutfree=True,
+    lactosefree=True,
+    vegan=True,
+    vegetarian=True)
+
+cheesepizza = Recipe("Cheese Pizza",
+                     45, [
+                         'dry yeast', 'sugar', 'flour', 'olive oil', 'salt',
+                         'mozzarella cheese', 'pizza sauce'
+                     ],
+                     vegetarian=True,
+                     peanutfree=True)
+
+hotdogs = Recipe("Hot Dogs",
+                 20, ['bun', 'hot dog'],
+                 lactosefree=True,
+                 peanutfree=True)
+
+cheeseburgers = Recipe("Cheese Burgers",
+                       30, [
+                           'ground beef', 'cheese', 'bun', 'ketchup',
+                           'mustard', 'lettuce', 'tomato'
+                       ],
+                       peanutfree=True)
+
+chx_alfredo = Recipe(
+    "Chicken Alfredo",
+    30,
+    ['chicken', 'fettuccine', 'alfredo sauce', 'milk', 'frozen vegetables'],
+    peanutfree=True)
+
+chx_potpie = Recipe("Chicken Pot Pie",
+                    30, [
+                        'chicken', 'potato', 'carrot', 'onion', 'pea',
+                        'butter', 'milk', 'flour', 'chicken broth'
+                    ],
+                    peanutfree=True)
+
+shepherds_pie = Recipe(
+    "Shepherd's Pie",
+    30, ['ground beef', 'corn', 'onion', 'potatoes', 'milk', 'butter'],
+    peanutfree=True)
+
+meatloaf = Recipe("Meatloaf",
+                  75,
+                  ['beef', 'egg', 'onion', 'milk', 'bread crumb', 'ketchup'],
+                  peanutfree=True)
+
+chx_cordonblu = Recipe("Chicken Cordon Bleu",
+                       45, ['chicken', 'swiss cheese', 'ham', 'bread crumb'],
+                       peanutfree=True)
+
+dumplings = Recipe("Dumplings",
+                   20, ['flour', 'baking powder', 'sugar', 'milk', 'butter'],
+                   peanutfree=True,
+                   vegetarian=True)
+
+perogis = Recipe("Perogis",
+                 50, ['flour', 'egg', 'potato', 'cheese'],
+                 peanutfree=True,
+                 vegetarian=True)
+
+nachos = Recipe(
+    "Nachos",
+    45,
+    ['beef', 'cheese', 'chip', 'bean', 'salsa', 'onion', 'taco seasoning'],
+    peanutfree=True)
+
+buff_chx_wings = Recipe(
+    "Buffalo Wings",
+    120, ['flour', 'buffalo sauce', 'chicken', 'garlic powder'],
+    peanutfree=True)
+
+pizza_bagels = Recipe("Cheese Pizza Bagels",
+                      20, ['bagel', 'sauce', 'cheese'],
+                      peanutfree=True,
+                      vegetarian=True)
+
+buff_chx_wrap = Recipe(
+    "Buffalo Chicken Wrap",
+    30, ['chicken', 'vegetable oil', 'buffalo sauce', 'lettuce', 'tortilla'],
+    peanutfree=True,
+    lactosefree=True)
+
+buff_chx_dip = Recipe("Buffalo Chicken Dip",
+                      5, ['hot sauce', 'butter', 'garlic powder', 'chicken'],
+                      peanutfree=True,
+                      glutenfree=True)
+
+chx_noodle_soup = Recipe(
+    "Chicken Noodle Soup",
+    40, [
+        'butter', 'celery', 'noodle', 'carrot', 'onion', 'garlic',
+        'chicken stock', 'rosemary', 'sage', 'chicken'
+    ],
+    lactosefree=True,
+    peanutfree=True)
+
+ravioli = Recipe("Ravioli",
+                 40, [
+                     'flour', 'egg', 'olive oil', 'garlic', 'mozzarella',
+                     'parmesan', 'ricotta', 'basil', 'parsley', 'oregano',
+                     'tomato', 'sugar', 'salt', 'pepper'
+                 ],
+                 vegetarian=True,
+                 peanutfree=True)
+
+chx_parm = Recipe(
+    "Chicken Parmesan",
+    45, [
+        'chicken', 'flour', 'egg', 'mozzarella', 'parmesan',
+        'bread crumb', 'olive oil', 'marinara sauce', 'pasta'
+    ],
+    peanutfree=True)
+
+grilled_chz = Recipe("Grilled Cheese",
+                     10, ['bread', 'butter', 'american cheese'],
+                     peanutfree=True)
+
+pb_j = Recipe("Peanut Butter and Jelly",
+              10, ['peanut butter', 'jelly', 'bread'],
+              vegetarian=True,
+              vegan=True,
+              lactosefree=True)
+
+fish_chips = Recipe("Fish and Chips",
+                    40, [
+                        'cod', 'vegetable oil', 'flour', 'baking powder',
+                        'milk', 'egg', 'potato'
+                    ],
+                    peanutfree=True)
+
+frencho_soup = Recipe(
+    "French Onion Soup",
+    80, [
+        'onion', 'olive oil', 'garlic', 'vegetable stock', 'white wine',
+        'bay leaf', 'thyme', 'baguette', 'gruyere cheese', 'parmesan'
+    ],
+    vegetarian=True,
+    peanutfree=True,
+    vegan=True)
+
+spin_art_dip = Recipe("Spinach and Artichoke Dip",
+                      40, [
+                          'spinach', 'artichoke', 'cream cheese',
+                          'parmesan', 'romano cheese', 'mayonnaise',
+                          'mozzarella', 'garlic salt', 'corn chip'
+                      ],
+                      vegetarian=True,
+                      peanutfree=True,
+                      glutenfree=True)
+
+cook_book = [
+    chx_tacos, ceasar_salad, spaghetti_meatballs, shrimp_grits, montreal_steak,
+    teryaki_steak, cali_roll, stir_fry, cheesepizza, hotdogs, cheeseburgers,
+    chx_alfredo, chx_potpie, shepherds_pie, meatloaf, chx_cordonblu, dumplings,
+    perogis, nachos, buff_chx_wings, pizza_bagels, buff_chx_wrap, buff_chx_dip,
+    chx_noodle_soup, ravioli, chx_parm, grilled_chz, pb_j, fish_chips,
+    spin_art_dip
+]
+'''
+function: will check for allergens in each recipe and return true if recipe has said 
+allergen.
+inputs: recipe and the allergen
+outputs: true or false
+'''
+
+
+def allergen_check(recipe, allergens):
+  if type(allergens) == str:
+    if allergens in recipe.ingredients:
+      return True
+    else:
+      return False
+  else:
+    return any(allergen in recipe.ingredients for allergen in allergens)
+
+
+'''
+function: takes user input for either allergens or diet restrictions and puts it into a 
+list to be checked in each recipe 
+inputs: which diet restrictions or allergens the user wants to check
+outputs: list of all allergens / diet restrictions 
+'''
+
+
+def userinputs(restrictions):
+  run_condition = True
+  emptylist = []
+  while run_condition == True:
+    userinput = input(
+        f"Enter your {restrictions} restrictions line by line. Please put allergies as singular nouns. Also note that peanuts and lactose allergies should be entered as 'peanutfree' and 'lactosefree' in the diet restrictions. Type 'done' when done: "
+    )
+    if userinput == "done":
+      break
+    else:
+      emptylist.append(userinput)
+  return emptylist
+
+
+'''
+function: takes user input for diet restrictions and tells code if recipe can be used 
+input: diets
+output: true if recipe passes and false if not 
+
+'''
+
+
+def diet_check(recipe, diets):
+  if type(diets) == str:
+    if diets in recipe.word_diet:
+      return True
+    else:
+      return False
+  else:
+    return any(diet in recipe.word_diet for diet in diets)
+
+
+'''
+function: takes user input for ingrediants and tells code if recipe can be used
+input: ingredients
+output: true if recipe has all ingredients and false if not
+'''
+
+
+def ingredient_check(Recipe, ingredients):
+  return all(ingredient in Recipe.ingredients for ingredient in ingredients)
+
+
+
+def main():
+  print("Hello! Welcome to Recipe Finder!")
+  ingredientcondition = True
+  ingredient_list = []
+  while ingredientcondition == True:
+    i_userinput = input(
+        "Enter your ingredients line by line. Be sure to use singular nouns. Type 'done' when done: "
+    )
+    if i_userinput == "done":
+      break
+    else:
+      ingredient_list.append(i_userinput)
+  allergies = userinputs("allergy")
+  diets = userinputs("diet")
+  usable_recipes = []
+  if diets == []:
+    for item in cook_book:
+      if ingredient_check(item, ingredient_list) == True and allergen_check(
+          item, allergies) == False:
+        usable_recipes.append(item)
+      else:
+        pass
+  else:
+    for item in cook_book:
+      if ingredient_check(item, ingredient_list) == True and allergen_check(
+          item, allergies) == False and diet_check(item,diets) == True:
+        usable_recipes.append(item)
+      else:
+        pass
+  if len(usable_recipes) > 0:
+    for i in usable_recipes:
+      list_of_current_ingredientts = list(set(i.ingredients).difference(set(ingredient_list)))
+      print(f'{i.name} is a a recipe you could make given your ingredients, allergens, and diet resitrictions. The cook time is {i.cooktime} minutes. You will need the following ingredients to complete your meal: {list_of_current_ingredientts}')
+  else:
+    print(
+        f"I'm sorry, but we could not find any recipes in our cookbook that contain those ingredients as well as follow your diet and allergy restrictions. Please try again with different ingredients and diet restrictions."
+    )
+
+
+if __name__ == "__main__":
+  main()
